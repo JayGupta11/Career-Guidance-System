@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Career Guide</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 font-sans">
+    <div class="max-w-2xl mx-auto p-8">
+        <header class="text-center mb-10">
+            <h1 class="text-4xl font-bold text-indigo-600">AI Career Predictor</h1>
+            <p class="text-gray-600 mt-2">Enhanced with Machine Learning</p>
+        </header>
+        <form action="/predict" method="POST" class="bg-white p-8 rounded-lg shadow-md">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700">Gender</label>
+                    <select name="Gender" class="mt-1 block w-full p-2 border rounded-md">
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700">Age</label>
+                    <input type="number" name="Age" value="21" class="mt-1 block w-full p-2 border rounded-md">
+                </div>
+                <div class="col-span-2">
+                    <label class="block text-sm font-medium text-gray-700">CGPA (0.0 - 10.0)</label>
+                    <input type="number" step="0.01" name="CGPA" placeholder="8.5" class="mt-1 block w-full p-2 border rounded-md" required>
+                </div>
+                <div class="col-span-2">
+                    <label class="block text-sm font-medium text-gray-700">Interested Domain</label>
+                    <select name="Interested Domain" class="mt-1 block w-full p-2 border rounded-md">
+                        {% for domain in domains %}
+                            <option value="{{ domain }}">{{ domain }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div><label class="block text-sm font-medium">Python Skill</label>
+                    <select name="Python" class="mt-1 block w-full p-2 border rounded-md">
+                        <option value="Strong">Strong</option><option value="Average">Average</option><option value="Weak">Weak</option>
+                    </select>
+                </div>
+                <div><label class="block text-sm font-medium">SQL Skill</label>
+                    <select name="SQL" class="mt-1 block w-full p-2 border rounded-md">
+                        <option value="Strong">Strong</option><option value="Average">Average</option><option value="Weak">Weak</option>
+                    </select>
+                </div>
+                <div><label class="block text-sm font-medium">Java Skill</label>
+                    <select name="Java" class="mt-1 block w-full p-2 border rounded-md">
+                        <option value="Strong">Strong</option><option value="Average">Average</option><option value="Weak">Weak</option>
+                    </select>
+                </div>
+            </div>
+            <button type="submit" class="w-full mt-8 bg-indigo-600 text-white p-3 rounded-lg font-bold hover:bg-indigo-700 transition">Predict Career</button>
+        </form>
+    </div>
+</body>
+</html>
